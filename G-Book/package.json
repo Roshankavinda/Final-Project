@@ -1,5 +1,5 @@
 {
-  "name": "collegesocialapp",
+  "name": "gbook",
   "version": "1.0.0",
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
@@ -10,8 +10,6 @@
     "eject": "expo eject"
   },
   "dependencies": {
-    "@react-native-firebase/app": "^14.3.0",
-    "@react-native-firebase/auth": "^14.3.0",
     "@react-navigation/native": "^6.0.8",
     "@react-navigation/stack": "^6.1.1",
     "expo": "~44.0.0",
@@ -23,8 +21,7 @@
     "react-native-web": "0.17.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.9",
-    "@types/react-native-elements": "^0.18.0"
+    "@babel/core": "^7.12.9"
   },
   "private": true
 }

@@ -17,11 +17,12 @@ const PostHeader = ({post}) => (
   <View style={{
     flexDirection: 'row', 
     justifyContent: 'space-between', 
-    margin: 5,alignItems: 'center'
+    margin: 5,
+    alignItems: 'center'
     }}>
-    <View>
+    <View style={{flexDirection:'row', alignItems: 'center'}}>
       <Image source={{uri: post.profile_picture}} style={styles.story}/>
-      <Text></Text>
+      <Text style={{marginLeft:5, fontWeight: '700'}}>{post.user}</Text>
     </View>
   </View>
 )
