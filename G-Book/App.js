@@ -8,6 +8,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import LandingScreen from './components/auth/Landing'
 import LoginScreen from './components/auth/Login';
 
+
 const Stack = createStackNavigator();
 
 export class App extends Component {
