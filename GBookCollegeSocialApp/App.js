@@ -1,28 +1,31 @@
-import { createAppContainer, createSwitchNavigator } from "react-navigation";
+import { createAppContainer, createSwitchNavigator} from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
 import LoadingScreen from "./screens/LoadingScreen";
 import LoginScreen from "./screens/LoginScreen";
 import HomeScreen from "./screens/HomeScreen";
 
-import { initializeApp } from "firebase/app";
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
+import 'firebase/compat/firestore';
 
-const firebaseConfig = {
-  apiKey: "AIzaSyDM59jzv5Hx8XKOkvXuyBXyCITbMjB44Oo",
-  authDomain: "collegeapp-ca399.firebaseapp.com",
-  projectId: "collegeapp-ca399",
-  storageBucket: "collegeapp-ca399.appspot.com",
-  messagingSenderId: "91117096836",
-  appId: "1:91117096836:web:b848bd95b422a0d9c197d1"
+ export const firebaseConfig = {
+  apiKey: "AIzaSyCQazdLG0-UrcwwHsMWv8g1xyR2F1UPnSs",
+  authDomain: "collegeapp-9a284.firebaseapp.com",
+  projectId: "collegeapp-9a284",
+  storageBucket: "collegeapp-9a284.appspot.com",
+  messagingSenderId: "723049608751",
+  appId: "1:723049608751:web:af72b7b64c9f65cbbb78da"
 };
 
-const app = initializeApp(firebaseConfig);
+export const firebaseApp = firebase.initializeApp(firebaseConfig);
+firebase.firestore();
 
 const AppStack = createStackNavigator({
   Home: HomeScreen
 })
 
 const AuthStack = createStackNavigator({
-  Login: LoginScreen,
+  Login: LoginScreen
 })
 
 export default createAppContainer(
@@ -37,3 +40,4 @@ export default createAppContainer(
        }
    )
 );
+
