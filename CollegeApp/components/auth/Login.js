@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+/*import React, { Component } from 'react';
 import { View, Button, TextInput } from 'react-native'
 
 import firebase from '@firebase/app';
@@ -48,4 +48,4 @@ export class Login extends Component {
   }
 }
 
-export default Login;
+export default Login;*/

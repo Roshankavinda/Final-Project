@@ -1,4 +1,4 @@
-import firebase from 'firebase';
+/*import firebase from 'firebase';
 
 
 const firebaseConfig = {
@@ -13,4 +13,4 @@ const firebaseConfig = {
 
 if (firebase.apps.length === 0) {
   firebase.initializeApp(firebaseConfig)
-}
+}*/

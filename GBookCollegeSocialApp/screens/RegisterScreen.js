@@ -4,25 +4,31 @@ import 'firebase/compat/auth';
 import {firebaseApp} from '../App'
 
 
-export default class LoginScreen extends React.Component{
+
+export default class RegisterScreen extends React.Component{
     state ={
+        name: "",
         email:"",
         password: "",
         errorMessage: null
     };
 
-    handleLogin = () =>{
-        const {email, password} = this.state
-
+    handleSignUp = () =>{
         firebaseApp
         .auth()
-        .signInWithEmailAndPassword(email, password)
-        .catch(error => this.setState({errorMessage:error.message}));
-    }
+        .createUserWithEmailAndPassword(this.state.email, this.state.password)
+        .then(userCredentials => {
+            return userCredentials.user.updateProfile({
+                displayName: this.state.name
+            });
+        })
+        .catch(error => this.setState({errorMessage: error.message}));
+        };
+
     render(){
         return(
             <View style={styles.container}>
-                <Text style={styles.greeting}>{`Hello again.\nWelcome back.`}</Text>
+                <Text style={styles.greeting}>{`Hello again.\nSign up to get started.`}</Text>
 
                 <View style={styles.errorMessage}>
                  {this.state.errorMessage && <Text style={styles.error}>{this.state.errorMessage}</Text>}
@@ -30,6 +36,16 @@ export default class LoginScreen extends React.Component{
 
                 <View style={styles.form}>
                     <View>
+                        <Text style={styles.inputTitle}>Full Name</Text>
+                        <TextInput 
+                        style={styles.input} 
+                        autoCapitalize="none"
+                        onChangeText={name => this.setState({name})}
+                        value={this.state.name }
+                        ></TextInput>
+                    </View>
+
+                    <View style={{marginTop: 32}}>
                         <Text style={styles.inputTitle}>Email Address</Text>
                         <TextInput 
                         style={styles.input} 
@@ -51,16 +67,16 @@ export default class LoginScreen extends React.Component{
                     </View>
                 </View>
 
-                <TouchableOpacity style={styles.button} onPress={this.handleLogin}>
-                    <Text style={{color:"#fff", fontWeight: "500"}}>Sign in</Text>
+                <TouchableOpacity style={styles.button} onPress={this.handleSignUp}>
+                    <Text style={{color:"#fff", fontWeight: "500"}}>Sign Up</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity 
-                           style={{alignSelf: "center", marginTop: 32}} 
-                           onPress={() => this.props.navigation.navigate("Register")}       
+                           style={{alignSelf: "center", marginTop: 32}}  
+                           onPress={() => this.props.navigation.navigate("Login")}     
                 >
                     <Text style={{color: "#414959", fontSize: 13}}>
-                        New to GBook?<Text style={{fontWeight: "500", color: "#E9446A"}}> Sign Up</Text>
+                        GBook User?<Text style={{fontWeight: "500", color: "#E9446A"}}>Login</Text>
                     </Text>
                 </TouchableOpacity>
             </View>

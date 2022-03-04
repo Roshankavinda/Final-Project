@@ -2,6 +2,7 @@ import { createAppContainer, createSwitchNavigator} from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
 import LoadingScreen from "./screens/LoadingScreen";
 import LoginScreen from "./screens/LoginScreen";
+import RegisterScreen from "./screens/RegisterScreen";
 import HomeScreen from "./screens/HomeScreen";
 
 import firebase from 'firebase/compat/app';
@@ -25,7 +26,8 @@ const AppStack = createStackNavigator({
 })
 
 const AuthStack = createStackNavigator({
-  Login: LoginScreen
+  Login: LoginScreen,
+  Register: RegisterScreen
 })
 
 export default createAppContainer(

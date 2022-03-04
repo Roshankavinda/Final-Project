@@ -5,14 +5,11 @@ import 'firebase/compat/auth';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 import {firebaseApp} from '../App'
+import firebase from 'firebase/compat/app';
 
 export default class LoadingScreen extends React.Component{
-
- 
-    
     componentDidMount(){
         const auth =getAuth(firebaseApp);onAuthStateChanged(auth, user => {
-            //console.log('hiii')
             this.props.navigation.navigate(user ? "App" : "Auth");
         });
     }
