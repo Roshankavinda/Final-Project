@@ -1,20 +1,22 @@
-import React from "react";
-import {View, Text, StyleSheet, TextInput, TouchableOpacity} from "react-native";
+/*import React from "react";
+import {View, Text, StyleSheet, TextInput, TouchableOpacity, Image, StatusBar} from "react-native";
 import 'firebase/compat/auth';
-import {firebaseApp} from '../App'
-
-
+import firebase from 'firebase/compat/app';
 
 export default class RegisterScreen extends React.Component{
+    static navigationOptions = {
+        header: null
+    };
+
     state ={
         name: "",
-        email:"",
+        email:string = "",
         password: "",
         errorMessage: null
     };
 
     handleSignUp = () =>{
-        firebaseApp
+        firebase
         .auth()
         .createUserWithEmailAndPassword(this.state.email, this.state.password)
         .then(userCredentials => {
@@ -28,7 +30,18 @@ export default class RegisterScreen extends React.Component{
     render(){
         return(
             <View style={styles.container}>
-                <Text style={styles.greeting}>{`Hello again.\nSign up to get started.`}</Text>
+                <StatusBar barStyle="light-content"></StatusBar>
+
+                <Image source={require("../assets/Logo.png")} 
+                style={{marginTop: -30, marginLeft: 30}}
+                ></Image>
+
+                <Image
+                source={require("../assets/Border.png")}
+                style={{ bottom: -130, right: 100}}
+                ></Image>
+
+                <Text style={styles.greeting}>{`Welcome to GBOOK.\nSign up to get started.`}</Text>
 
                 <View style={styles.errorMessage}>
                  {this.state.errorMessage && <Text style={styles.error}>{this.state.errorMessage}</Text>}
@@ -68,15 +81,15 @@ export default class RegisterScreen extends React.Component{
                 </View>
 
                 <TouchableOpacity style={styles.button} onPress={this.handleSignUp}>
-                    <Text style={{color:"#fff", fontWeight: "500"}}>Sign Up</Text>
+                    <Text style={{color:"black", fontWeight: "bold"}}>Sign Up</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity 
                            style={{alignSelf: "center", marginTop: 32}}  
                            onPress={() => this.props.navigation.navigate("Login")}     
                 >
-                    <Text style={{color: "#414959", fontSize: 13}}>
-                        GBook User?<Text style={{fontWeight: "500", color: "#E9446A"}}>Login</Text>
+                    <Text style={{color: "#414959", fontSize: 15}}>
+                        GBook User?<Text style={{fontWeight: "bold", color: "#024d1b"}}>Login</Text>
                     </Text>
                 </TouchableOpacity>
             </View>
@@ -90,9 +103,9 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     greeting:{
-        marginTop: 32,
-        fontSize: 18,
-        fontWeight: "400",
+        marginTop: -700,
+        fontSize: 22,
+        fontWeight: "800",
         textAlign: "center"
     },
     errorMessage:{
@@ -108,7 +121,7 @@ const styles = StyleSheet.create({
         textAlign: "center"
     },
     form:{
-        marginBottom: 48,
+        marginBottom: 38,
         marginHorizontal: 30
     },
     inputTitle:{
@@ -125,10 +138,10 @@ const styles = StyleSheet.create({
     },
     button:{
         marginHorizontal: 30,
-        backgroundColor: "#E9446A",
+        backgroundColor: "#22c94f",
         borderRadius: 4,
         height: 52,
         alignItems: "center",
         justifyContent: "center"
     }
-});
+});*/
