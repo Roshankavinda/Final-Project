@@ -1,70 +1,37 @@
-/*import React from "react";
-import {View, Text, StyleSheet, TextInput, TouchableOpacity, Image, StatusBar} from "react-native";
-import 'firebase/compat/auth';
-import firebase from 'firebase/compat/app';
+import React from "react";
+import {View, Text, StyleSheet, TextInput, TouchableOpacity, Image, StatusBar, LayoutAnimation} from "react-native"
 
-export default class RegisterScreen extends React.Component{
+
+export default class LoginScreen extends React.Component{
     static navigationOptions = {
-        header: null
+        headerShown: false
     };
-
-    state ={
-        name: "",
-        email:string = "",
-        password: "",
-        errorMessage: null
-    };
-
-    handleSignUp = () =>{
-        firebase
-        .auth()
-        .createUserWithEmailAndPassword(this.state.email, this.state.password)
-        .then(userCredentials => {
-            return userCredentials.user.updateProfile({
-                displayName: this.state.name
-            });
-        })
-        .catch(error => this.setState({errorMessage: error.message}));
-        };
 
     render(){
+        LayoutAnimation.easeInEaseOut();
         return(
             <View style={styles.container}>
                 <StatusBar barStyle="light-content"></StatusBar>
-
-                <Image source={require("../assets/Logo.png")} 
-                style={{marginTop: -30, marginLeft: 30}}
+                <Image 
+                source={require("../assets/Logo.png")} 
+                style={{marginTop: 30, marginLeft: 30}}
                 ></Image>
 
                 <Image
                 source={require("../assets/Border.png")}
-                style={{ bottom: -130, right: 100}}
+                style={{ bottom: -45, right: 100}}
                 ></Image>
-
                 <Text style={styles.greeting}>{`Welcome to GBOOK.\nSign up to get started.`}</Text>
 
-                <View style={styles.errorMessage}>
-                 {this.state.errorMessage && <Text style={styles.error}>{this.state.errorMessage}</Text>}
-            </View>
 
                 <View style={styles.form}>
-                    <View>
-                        <Text style={styles.inputTitle}>Full Name</Text>
-                        <TextInput 
-                        style={styles.input} 
-                        autoCapitalize="none"
-                        onChangeText={name => this.setState({name})}
-                        value={this.state.name }
-                        ></TextInput>
-                    </View>
-
-                    <View style={{marginTop: 32}}>
+                    <View style={{marginTop: 50}}>
                         <Text style={styles.inputTitle}>Email Address</Text>
                         <TextInput 
                         style={styles.input} 
                         autoCapitalize="none"
-                        onChangeText={email => this.setState({email})}
-                        value={this.state.email }
+                        //onChangeText={text => setEmail(text)}
+                        //value={email}
                         ></TextInput>
                     </View>
 
@@ -74,13 +41,13 @@ export default class RegisterScreen extends React.Component{
                         style={styles.input} 
                         secureTextEntry 
                         autoCapitalize="none"
-                        onChangeText={password => this.setState({password})}
-                        value={this.state.email}
+                        //onChangeText={text => setPassword(text)}
+                        //value={password}
                         ></TextInput>
                     </View>
                 </View>
 
-                <TouchableOpacity style={styles.button} onPress={this.handleSignUp}>
+                <TouchableOpacity style={styles.button} /*onPress={handleSignUp}*/>
                     <Text style={{color:"black", fontWeight: "bold"}}>Sign Up</Text>
                 </TouchableOpacity>
 
@@ -98,30 +65,19 @@ export default class RegisterScreen extends React.Component{
     }
 }
 
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,
     },
     greeting:{
         marginTop: -700,
-        fontSize: 22,
-        fontWeight: "800",
-        textAlign: "center"
-    },
-    errorMessage:{
-        height: 72,
-        alignItems: "center",
-        justifyContent: "center",
-        marginHorizontal: 30
-    },
-    error:{
-        color: "#E9446A",
-        fontSize: 13,
-        fontWeight: "600",
+        fontSize: 25,
+        fontWeight: "500",
         textAlign: "center"
     },
     form:{
-        marginBottom: 38,
+        marginBottom: 48,
         marginHorizontal: 30
     },
     inputTitle:{
@@ -144,4 +100,4 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center"
     }
-});*/
+});

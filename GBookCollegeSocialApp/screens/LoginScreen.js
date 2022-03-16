@@ -1,54 +1,38 @@
-import React from "react";
-import {View, Text, StyleSheet, TextInput, TouchableOpacity, Image, StatusBar, LayoutAnimation} from "react-native";
-import firebase from 'firebase/compat/app';
-import 'firebase/compat/auth';
+import React, { useEffect,useState } from "react";
+import { View, Text, StyleSheet, TextInput, TouchableOpacity, Image, StatusBar, LayoutAnimation } from "react-native";
 
 export default class LoginScreen extends React.Component{
     static navigationOptions = {
-        header: null
+        headerShown: false
     };
 
-    state ={
-        email:"",
-        password: "",
-        errorMessage: null
-    };
-
-    handleLogin = () =>{
-        const {email, password} = this.state
-
-        firebase
-        .auth()
-        .signInWithEmailAndPassword(email, password)
-        .catch(error => this.setState({errorMessage:error.message}));
-    }
-    render(){
+     render(){
+        LayoutAnimation.easeInEaseOut();
         return(
             <View style={styles.container}>
                 <StatusBar barStyle="light-content"></StatusBar>
                 <Image 
                 source={require("../assets/Logo.png")} 
-                style={{marginTop: 0, marginLeft: 30}}
+                style={{marginTop: 20, marginLeft: 30}}
                 ></Image>
 
                 <Image
                 source={require("../assets/Border.png")}
-                style={{ bottom: -100, right: 100}}
+                style={{ bottom: -50, right: 100}}
                 ></Image>
                 <Text style={styles.greeting}>{`Hello again.\nWelcome back.`}</Text>
 
-                <View style={styles.errorMessage}>
-                 {this.state.errorMessage && <Text style={styles.error}>{this.state.errorMessage}</Text>}
+                <View >
+                 
             </View>
-
-                <View style={styles.form}>
-                    <View>
+            <View style={styles.form}>
+                    <View style={{marginTop: 50}}>
                         <Text style={styles.inputTitle}>Email Address</Text>
                         <TextInput 
                         style={styles.input} 
                         autoCapitalize="none"
-                        onChangeText={email => this.setState({email})}
-                        value={this.state.email }
+                        //onChangeText={text => setEmail(text)}
+                        //value={email}
                         ></TextInput>
                     </View>
 
@@ -58,19 +42,19 @@ export default class LoginScreen extends React.Component{
                         style={styles.input} 
                         secureTextEntry 
                         autoCapitalize="none"
-                        onChangeText={password => this.setState({password})}
-                        value={this.state.email}
+                        //onChangeText={text => setPassword(text)}
+                        //value={password}
                         ></TextInput>
                     </View>
                 </View>
 
-                <TouchableOpacity style={styles.button} onPress={this.handleLogin}>
+                <TouchableOpacity style={styles.button} /*onPress={handleLogin}*/>
                     <Text style={{color:"black", fontWeight: "bold"}}>Sign in</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity 
                            style={{alignSelf: "center", marginTop: 32}} 
-                           onPress={() => this.props.navigation.navigate("Home")}       
+                           onPress={() => this.props.navigation.navigate("Register")}       
                 >
                     <Text style={{color: "#414959", fontSize: 15}}>
                         New to GBook?<Text style={{fontWeight: "bold", color: "#024d1b"}}> Sign Up</Text>
@@ -79,7 +63,7 @@ export default class LoginScreen extends React.Component{
             </View>
             
         );
-    }
+   }
 }
 
 const styles = StyleSheet.create({
@@ -92,20 +76,8 @@ const styles = StyleSheet.create({
         fontWeight: "500",
         textAlign: "center"
     },
-    errorMessage:{
-        height: 72,
-        alignItems: "center",
-        justifyContent: "center",
-        marginHorizontal: 30
-    },
-    error:{
-        color: "#E9446A",
-        fontSize: 13,
-        fontWeight: "600",
-        textAlign: "center"
-    },
     form:{
-        marginBottom: 48,
+        marginBottom: 38,
         marginHorizontal: 30
     },
     inputTitle:{

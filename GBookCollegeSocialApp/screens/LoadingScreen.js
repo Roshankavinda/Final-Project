@@ -1,15 +1,14 @@
-import React from 'react';
+/*import React from 'react';
 import {View, Text, StyleSheet, ActivityIndicator} from "react-native";
-import firebase from 'firebase/compat/app';
-import 'firebase/compat/auth';
+import * as firebase from "firebase/app";
 
 export default class LoadingScreen extends React.Component{
     componentDidMount(){
         firebase.auth().onAuthStateChanged(user => {
-            this.props.navigation.navigate(user ? "App" : "Auth");
+            this.props.navigation.navigate(user ? "App" : "Auth")
         });
     }
-    
+
     render(){
         return(
             <View style={style.container}>
@@ -27,4 +26,4 @@ const style = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center"
     }
-});
+});*/
