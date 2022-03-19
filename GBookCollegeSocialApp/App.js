@@ -60,12 +60,6 @@ const AppContainer = createStackNavigator(
             tabBarIcon: ({ tintColor }) => <Ionicons name="ios-notifications" size={24} color= {tintColor}/>
           }
         },
-        Announcement: {
-          screen: AnnouncementScreen,
-          navigationOptions: {
-            tabBarIcon: ({ tintColor }) => <Ionicons name="ios-megaphone-sharp" size={24} color= {tintColor}/>
-          }
-        },
         Profile: {
         screen: ProfileScreen,
         navigationOptions: {
@@ -111,9 +105,9 @@ const AuthStack = createStackNavigator({
 export default createAppContainer(
    createSwitchNavigator(
        {
-        
-        Auth: AuthStack,   
         App: AppContainer,
+        Auth: AuthStack,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+        
            
        }
    )

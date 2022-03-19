@@ -1,9 +1,25 @@
-import React, { useEffect,useState } from "react";
+import React from "react";
 import { View, Text, StyleSheet, TextInput, TouchableOpacity, Image, StatusBar, LayoutAnimation } from "react-native";
+import * as firebase from "firebase";
 
 export default class LoginScreen extends React.Component{
     static navigationOptions = {
         headerShown: false
+    };
+
+    state = {
+        email: "",
+        password: "",
+        errorMessage: null
+    }
+    
+    handleLogin = () => {
+        const { email, password } = this.state;
+
+        firebase
+        .auth()
+        .signInWithEmailAndPassword(email, password)
+        .catch(error => this.setState({ errorMessage: error.message}));
     };
 
      render(){
@@ -18,21 +34,21 @@ export default class LoginScreen extends React.Component{
 
                 <Image
                 source={require("../assets/Border.png")}
-                style={{ bottom: -50, right: 100}}
+                style={{ bottom: -150, right: 100}}
                 ></Image>
                 <Text style={styles.greeting}>{`Hello again.\nWelcome back.`}</Text>
 
-                <View >
-                 
+                <View style={styles.errorMessage}>
+                   {this.state.errorMessage && <Text style={styles.error}>{this.state.errorMessage}</Text>} 
             </View>
             <View style={styles.form}>
-                    <View style={{marginTop: 50}}>
+                    <View style={{marginTop: 10}}>
                         <Text style={styles.inputTitle}>Email Address</Text>
                         <TextInput 
                         style={styles.input} 
                         autoCapitalize="none"
-                        //onChangeText={text => setEmail(text)}
-                        //value={email}
+                        onChangeText={email =>this.setState(email)}
+                        value={this.state.email}
                         ></TextInput>
                     </View>
 
@@ -42,13 +58,13 @@ export default class LoginScreen extends React.Component{
                         style={styles.input} 
                         secureTextEntry 
                         autoCapitalize="none"
-                        //onChangeText={text => setPassword(text)}
-                        //value={password}
+                        onChangeText={password => this.setState(password)}
+                        value={this.state.password}
                         ></TextInput>
                     </View>
                 </View>
 
-                <TouchableOpacity style={styles.button} /*onPress={handleLogin}*/>
+                <TouchableOpacity style={styles.button} onPress={this.handleLogin}>
                     <Text style={{color:"black", fontWeight: "bold"}}>Sign in</Text>
                 </TouchableOpacity>
 
@@ -76,6 +92,18 @@ const styles = StyleSheet.create({
         fontWeight: "500",
         textAlign: "center"
     },
+    errorMessage:{
+        height: 72,
+        alignItems: "center",
+        justifyContent: "center",
+        marginHorizontal: 30
+    },
+    error:{
+        color: "#E9446A",
+        fontSize: 13,
+        fontWeight: "600",
+        textAlign: "center"
+    },  
     form:{
         marginBottom: 38,
         marginHorizontal: 30
