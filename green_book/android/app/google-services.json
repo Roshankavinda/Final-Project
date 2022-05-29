@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "348806818762",
+    "project_id": "g-book-social",
+    "storage_bucket": "g-book-social.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:348806818762:android:3f531d680251d307793d33",
+        "android_client_info": {
+          "package_name": "com.green.book.green_book"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "348806818762-64ct0jpi81085aa7fbqearrciqle2fed.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.green.book.green_book",
+            "certificate_hash": "a0efd9f117e071c0ba6493e6b9e803715cba3520"
+          }
+        },
+        {
+          "client_id": "348806818762-1sipv2p2hau9o2f0p0jiqiao7ff2jho9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChR35lemzs8vqmEd6B3dGUqwli-3xJSXQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "348806818762-1sipv2p2hau9o2f0p0jiqiao7ff2jho9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
